@@ -1,20 +1,24 @@
 /* When someone enters your game, you only want them to see the opening and the option buttons. The code below will use the display property to hide certain parts of the story. Remove the comments from the code below when you're ready for that step!*/
 
-/* 
-.option-one-screen, 
+
+
+.title,
+.story-opening,
+.buttons,
+/* .field-screen */
 .option-two-screen, 
 .option-one-end, 
 .option-two-end  {
    display:none;
 }
-*/
+
 
 
 /* Feel free to change any of the styling below!*/
 html,
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Style the body with a background color or image if desired */
@@ -106,4 +110,33 @@ button:hover {
 .option-two-end h1 {
     font-size: 20px;
     margin-bottom: 20px;
+}
+
+.field{
+    width: 90%;
+    height: auto;
+    position: absolute;
+    left: 150px;
+}
+.field-screen{
+    background-image: url(images/field.png);
+    /* these three lines were made by chat gpt so credits to them */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.backcard{
+    margin-top: 20px;
+    width: 5%;
+}
+.enemy{
+    margin-top: 2px;
+}
+.bottom-part{
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+}
+img{
+    width: 6%;
 }
