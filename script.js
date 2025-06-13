@@ -32,6 +32,7 @@ spell = document.querySelector(".fusion")
 remove = document.querySelector(".cyclone")
 Max = document.querySelector(".dragonTwo")
 dm = document.querySelector(".enemy")
+cardBack = document.querySelector(".backCard")
 
 
 // information when you hover each card... funny
@@ -74,4 +75,9 @@ dm.addEventListener("mouseover", function() {
 dm.addEventListener("mouseout", function() {
     cardName.innerHTML = ""
     informationCard.innerHTML = ""
+})
+
+// code for selecting a card
+remove.addEventListener("dblclick", function() {
+    cardBack.style.opacity = 0
 })
