@@ -67,6 +67,14 @@ dm.addEventListener("mouseout", function() {
     cardName.innerHTML = ""
     informationCard.innerHTML = ""
 })
+cardBack.addEventListener("mouseover", function() {
+    cardName.innerHTML = "Opponent face down card"
+    informationCard.innerHTML = "You should use one of your cards to get rid of it"
+})
+cardBack.addEventListener("mouseout", function() {
+    cardName.innerHTML = ""
+    informationCard.innerHTML = ""
+})
 console.log(yay)
 
 // code for selecting a card
