@@ -35,6 +35,7 @@ dm = document.querySelector(".enemy")
 cardBack = document.querySelector(".backCard")
 dragonDed = document.querySelector(".dedDragon")
 check = 0
+yay = 0
 
 
 // information when you hover each card... funny
@@ -85,6 +86,7 @@ function winning(){
     informationCard.innerHTML = "You used Cosmic Cyclone on the opponent face down card"
     cardBack.style.opacity = 0
     remove.style.display = "none"
+    yay = 1
 
 }
 function losing(){
@@ -115,6 +117,11 @@ dragonDed.addEventListener("click", function() {
     }
 })
 function defeat(){
-    informationCard.innerHTML = "Is the opponent turn and he attacks dirrectly for game"
-    cardName.innerHTML = ""
+    if (check = 3){
+        informationCard.innerHTML = "Is the opponent turn and he attacks dirrectly for game"
+        cardName.innerHTML = ""
+    }
+    if (yay = 1){
+        informationCard.innerHTML = "You use your monster to attck your opponent monster and win the game"
+    }
 }

@@ -5,8 +5,9 @@
 .title,
 .story-opening,
 .buttons,
-/* .field-screen */
-.option-two-screen, 
+.option-two-screen,
+/* .field-screen,
+.instruction,  */
 .option-one-end, 
 .option-two-end  {
    display:none;
@@ -141,5 +142,9 @@ img{
     width: 6%;
 }
 h1,h3{
-    color: white;
+    color: black;
+}
+.information{
+    background-color: #FDFD96;
+    opacity: .8;
 }
