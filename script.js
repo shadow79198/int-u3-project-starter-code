@@ -36,6 +36,12 @@ cardBack = document.querySelector(".backCard")
 dragonDed = document.querySelector(".dedDragon")
 check = 0
 yay = 0
+advance = document.querySelector(".option-one")
+title = document.querySelector(".title")
+openingStory = document.querySelector(".story-opening")
+attackYours = document.querySelector(".your-attack")
+hpEnemy = document.querySelector("#enemyHP")
+hpYours = document.querySelector("#yourHP")
 
 
 // information when you hover each card... funny
@@ -79,7 +85,7 @@ dm.addEventListener("mouseout", function() {
     cardName.innerHTML = ""
     informationCard.innerHTML = ""
 })
-
+console.log(yay)
 
 // code for selecting a card
 function winning(){
@@ -90,7 +96,12 @@ function winning(){
 
 }
 function losing(){
-    informationCard.innerHTML = "You use your ritual spell to summon Blue-Eyes Chaos MAX Dragon, in which you use your normal Blue Eyes White Dragon to summon"
+    attackYours.innerHTML = "ATK: 4000"
+    if (yay == 1) {
+        informationCard.innerHTML = "You use your ritual spell to summon Blue-Eyes Chaos MAX Dragon, in which you use your normal Blue Eyes White Dragon to summon"
+    }else{
+        informationCard.innerHTML = "You use your ritual spell to summon Blue-Eyes Chaos MAX Dragon, in which you use your normal Blue Eyes White Dragon to summon, but the enemy uses his trap card"
+    }
     blueEyes.style.display = "none"
     spell.style.display = "none"
     Max.style.display = "none"
@@ -114,14 +125,22 @@ dragonDed.addEventListener("click", function() {
         informationCard.innerHTML = "The opponent destroyed your card and the turn ends"
         check = 3
         cardBack.style.display = "none"
+        attackYours.innerHTML = "ATK: 0"
     }
 })
 function defeat(){
-    if (check = 3){
+    if (check == 3){
         informationCard.innerHTML = "Is the opponent turn and he attacks dirrectly for game"
         cardName.innerHTML = ""
+        hpYours.innerHTML = "Your HP: 0"
     }
-    if (yay = 1){
+    if (yay == 1){
         informationCard.innerHTML = "You use your monster to attck your opponent monster and win the game"
+        hpEnemy.innerHTML = "Enemy HP: 0"
     }
 }
+advance.addEventListener("click", function() {
+    title.style.display = "none"
+    openingStory.style.display = "none"
+    advance.style.display = "none"
+})

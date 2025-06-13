@@ -148,3 +148,8 @@ h1,h3{
     background-color: #FDFD96;
     opacity: .8;
 }
+.stats{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
