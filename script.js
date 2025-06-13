@@ -33,6 +33,8 @@ remove = document.querySelector(".cyclone")
 Max = document.querySelector(".dragonTwo")
 dm = document.querySelector(".enemy")
 cardBack = document.querySelector(".backCard")
+dragonDed = document.querySelector(".dedDragon")
+check = 0
 
 
 // information when you hover each card... funny
@@ -77,7 +79,42 @@ dm.addEventListener("mouseout", function() {
     informationCard.innerHTML = ""
 })
 
+
 // code for selecting a card
-remove.addEventListener("dblclick", function() {
+function winning(){
+    informationCard.innerHTML = "You used Cosmic Cyclone on the opponent face down card"
     cardBack.style.opacity = 0
+    remove.style.display = "none"
+
+}
+function losing(){
+    informationCard.innerHTML = "You use your ritual spell to summon Blue-Eyes Chaos MAX Dragon, in which you use your normal Blue Eyes White Dragon to summon"
+    blueEyes.style.display = "none"
+    spell.style.display = "none"
+    Max.style.display = "none"
+    check = 1
+    dragonDed.style.display = "flex"
+    dragonDed.style.justifyContent = "center"
+    dragonDed.style.marginLeft = "1170px"
+}
+cardBack.addEventListener("click", function() {
+    if (check == 1) {
+        cardBack.src = "images/God.png"
+        cardName.innerHTML = "Solemn Judgement"
+        informationCard.innerHTML = "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card."
+        check = 2
+    }
 })
+dragonDed.addEventListener("click", function() {
+    if (check == 2) {
+        dragonDed.style.display = "none"
+        cardName.innerHTML = ""
+        informationCard.innerHTML = "The opponent destroyed your card and the turn ends"
+        check = 3
+        cardBack.style.display = "none"
+    }
+})
+function defeat(){
+    informationCard.innerHTML = "Is the opponent turn and he attacks dirrectly for game"
+    cardName.innerHTML = ""
+}
