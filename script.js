@@ -1,29 +1,3 @@
-// Declare variables below to save the different divs of your story.
-
-
-
-
-
-
-
-
-
-// When you're ready to make event handlers, uncomment the code below. 
-//  - Then fill in the blanks with the correct variables.
-
-
-// INSERT_VARIABLE.addEventListener('click', function(){
-
-// });
-
-// INSERT_VARIABLE.addEventListener('click', function(){
-
-// });
-
-
-// INSERT_VARIABLE.addEventListener('click', function(){
-
-// });
 
 cardName = document.querySelector(".nameCard")
 informationCard = document.querySelector(".cardInformation")
@@ -34,15 +8,23 @@ Max = document.querySelector(".dragonTwo")
 dm = document.querySelector(".enemy")
 cardBack = document.querySelector(".backCard")
 dragonDed = document.querySelector(".dedDragon")
+imageFirst = document.querySelector(".firstImage")
+imageSecond = document.querySelector(".secondImage")
 check = 0
 yay = 0
+// move between the pages
 advance = document.querySelector(".option-one")
 title = document.querySelector(".title")
 openingStory = document.querySelector(".story-opening")
 attackYours = document.querySelector(".your-attack")
 hpEnemy = document.querySelector("#enemyHP")
 hpYours = document.querySelector("#yourHP")
-
+screenField = document.querySelector(".field-screen")
+instruction = document.querySelector(".instruction")
+finish = document.querySelector(".finish")
+woah = document.querySelector(".woah")
+result = document.querySelector(".result")
+credits = document.querySelector(".credits")
 
 // information when you hover each card... funny
 blueEyes.addEventListener("mouseover", function() {
@@ -112,6 +94,7 @@ function losing(){
 }
 cardBack.addEventListener("click", function() {
     if (check == 1) {
+        hpEnemy.innerHTML = "Enemy HP: 750"
         cardBack.src = "images/God.png"
         cardName.innerHTML = "Solemn Judgement"
         informationCard.innerHTML = "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card."
@@ -133,14 +116,39 @@ function defeat(){
         informationCard.innerHTML = "Is the opponent turn and he attacks dirrectly for game"
         cardName.innerHTML = ""
         hpYours.innerHTML = "Your HP: 0"
+        hpYours.style.color = "Red"
+        finish.style.display = "block"
+        console.log(check)
     }
     if (yay == 1){
         informationCard.innerHTML = "You use your monster to attck your opponent monster and win the game"
         hpEnemy.innerHTML = "Enemy HP: 0"
+        hpEnemy.style.color = "Red"
+        finish.style.display = "block"
     }
 }
 advance.addEventListener("click", function() {
     title.style.display = "none"
     openingStory.style.display = "none"
     advance.style.display = "none"
+    screenField.style.display = "block"
+    instruction.style.display = "block"
+})
+finish.addEventListener("click", function() {
+    screenField.style.display = "none"
+    instruction.style.display = "none"
+    woah.style.display = "block"
+    if(check == 3){
+        result.innerHTML = "Wow, Imagine losing"
+        credits.innerHTML = "Because you lost this game now you lost those $50, on top of that now you don't have money to buy the CD you wanted"
+        imageFirst.src = "images/marchPoor.png"
+        imageSecond.src= "images/huohuo.png"
+    }
+    if(yay == 1){
+        result.innerHTML = "Woooooooo, You Won"
+        credits.innerHTML = "Now you have $100 and You can buy the CD you wanted"
+        imageFirst.src = "images/marchMoney.png"
+        imageSecond.src = "images/topaz.png"
+    }
+
 })
